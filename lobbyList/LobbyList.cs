@@ -13,6 +13,13 @@ public partial class LobbyList : Node
         entryParent = GetNode("Panel/VBoxContainer/ScrollContainer/VBoxContainer");
         var updateBut = GetNode<Button>("Panel/UpdateButton");
         updateBut.Pressed += UpdateLobbyList;
+        var create = GetNode<Button>("Panel/create");
+        create.Pressed += () =>
+        {
+            var lobbyCreate = GD.Load<PackedScene>("res://lobbyList/lobbyCreate/lobbyCreate.tscn").
+               Instantiate<LobbyCreate>();
+            AddChild(lobbyCreate);
+        };
 
         lobbylistCallback = Callback<LobbyMatchList_t>.Create(OnRequestLobbyList);
         lobbyDataUpdateCallback = Callback<LobbyDataUpdate_t>.Create(OnLobbyDataUpdate);
