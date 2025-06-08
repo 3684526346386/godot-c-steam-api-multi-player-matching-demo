@@ -1,0 +1,233 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "Godot.SourceGenerators/4.4.0": {
+        "type": "package",
+        "build": {
+          "build/Godot.SourceGenerators.props": {}
+        }
+      },
+      "GodotSharp/4.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/GodotSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/GodotSharp.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "GodotSharpEditor/4.4.0": {
+        "type": "package",
+        "dependencies": {
+          "GodotSharp": "4.4.0"
+        },
+        "compile": {
+          "lib/net8.0/GodotSharpEditor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/GodotSharpEditor.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steamworks.NET/2024.8.0": {
+        "type": "package",
+        "compile": {
+          "ref/netstandard2.1/Steamworks.NET.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Steamworks.NET.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "linux-x64"
+          },
+          "runtimes/linux-x86/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "linux-x86"
+          },
+          "runtimes/osx-x64/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "osx-x64"
+          },
+          "runtimes/osx-x86/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "osx-x86"
+          },
+          "runtimes/win-x64/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "win-x64"
+          },
+          "runtimes/win-x86/lib/netstandard2.1/Steamworks.NET.dll": {
+            "assetType": "runtime",
+            "rid": "win-x86"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Godot.SourceGenerators/4.4.0": {
+      "sha512": "eoC+ccuHNDvOqb+8AKsAAOhVYfk+/zZwUhTYazMOfZoHdQnx8eWI6iHECBPVwxtR9sSsp68ovLoJAIv4xYOKpA==",
+      "type": "package",
+      "path": "godot.sourcegenerators/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/Godot.SourceGenerators.dll",
+        "build/Godot.SourceGenerators.props",
+        "godot.sourcegenerators.4.4.0.nupkg.sha512",
+        "godot.sourcegenerators.nuspec"
+      ]
+    },
+    "GodotSharp/4.4.0": {
+      "sha512": "4CQWLbgUVXU/yQjKafkIs204kVd3R4D6qnYcwC9HHv33xfAninl3j0AcPQgFU2eVmGYNEHnIXUZtrZh7WU5tig==",
+      "type": "package",
+      "path": "godotsharp/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "godotsharp.4.4.0.nupkg.sha512",
+        "godotsharp.nuspec",
+        "lib/net8.0/GodotSharp.dll",
+        "lib/net8.0/GodotSharp.xml"
+      ]
+    },
+    "GodotSharpEditor/4.4.0": {
+      "sha512": "vX6aagWM2VsKYd1QqyqY+Cz1rkA5Dq0tgnxl0VYMolpQoOsdtz71yGQxoE1pdqOqatardg9e951GXK5Zz6nnbg==",
+      "type": "package",
+      "path": "godotsharpeditor/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "godotsharpeditor.4.4.0.nupkg.sha512",
+        "godotsharpeditor.nuspec",
+        "lib/net8.0/GodotSharpEditor.dll",
+        "lib/net8.0/GodotSharpEditor.xml"
+      ]
+    },
+    "Steamworks.NET/2024.8.0": {
+      "sha512": "FHTj80ZyT09d0XwSnhE8+e6r/hwpp1+PmQ3RZbUqlyEQCVNrWDVmdA1ElIgQgx72XGIkF947kXL53z51puGD2g==",
+      "type": "package",
+      "path": "steamworks.net/2024.8.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.1/Steamworks.NET.dll",
+        "readme.md",
+        "ref/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/linux-x64/lib/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/linux-x86/lib/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/osx-x64/lib/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/osx-x86/lib/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/win-x64/lib/netstandard2.1/Steamworks.NET.dll",
+        "runtimes/win-x86/lib/netstandard2.1/Steamworks.NET.dll",
+        "steamworks.net.2024.8.0.nupkg.sha512",
+        "steamworks.net.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "Godot.SourceGenerators >= 4.4.0",
+      "GodotSharp >= 4.4.0",
+      "GodotSharpEditor >= 4.4.0",
+      "Steamworks.NET >= 2024.8.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\yhope\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\GODOT\\PROJECT\\STEAMMATCHINGDEMO\\SteamMatchingDemo.csproj",
+      "projectName": "SteamMatchingDemo",
+      "projectPath": "D:\\GODOT\\PROJECT\\STEAMMATCHINGDEMO\\SteamMatchingDemo.csproj",
+      "packagesPath": "C:\\Users\\yhope\\.nuget\\packages\\",
+      "outputPath": "D:\\GODOT\\PROJECT\\STEAMMATCHINGDEMO\\.godot\\mono\\temp\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\yhope\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "Godot.SourceGenerators": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
+          "GodotSharp": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
+          "GodotSharpEditor": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
+          "Steamworks.NET": {
+            "target": "Package",
+            "version": "[2024.8.0, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+res://main.tscn
+res://lobbyList/lobbyCreate/lobbyCreate.tscn
+res://lobbyList/lobbyCreate/LobbyCreate.cs
+res://lobbyList/LobbyChatRoom/LobbyChatRoom.cs
+res://lobbyList/LobbyList.cs
+res://lobbyList/lobbyEntry/LobbyEntry.cs
+res://lobbyList/LobbyChatRoom/PlayerItem/PlayerItem.cs
+res://SteamManager.cs
+res://lobbyList/lobbyList.tscn
