@@ -1,10 +1,10 @@
+Panel
+TextEdit
+VBoxContainer
 Button
 MenuButton
 Label
-VBoxContainer
 HBoxContainer
-TextEdit
-Panel
 GridContainer
 ItemList
 ScrollContainer

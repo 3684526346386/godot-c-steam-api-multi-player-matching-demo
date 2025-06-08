@@ -2,8 +2,9 @@ using Godot;
 using Steamworks;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-public partial class LobbyChatRoom : Node
+public partial class LobbyChatRoom : Control
 {
     public static LobbyChatRoom instance;
     public LobbyChatRoom()
@@ -12,13 +13,23 @@ public partial class LobbyChatRoom : Node
     }
 
     Callback<LobbyDataUpdate_t> lobbyDataUpdateCallback;
+    Callback<LobbyChatMsg_t> lobbyChatMsgCallback;
 
     Node playerItemCont;
+    TextEdit chatEdit;
+    Control msgCont;
+    VScrollBar chatScrollBar;
     public override void _EnterTree()
     {
         lobbyDataUpdateCallback = Callback<LobbyDataUpdate_t>.Create(OnLobbyDataUpdate);
-
+        lobbyChatMsgCallback = Callback<LobbyChatMsg_t>.Create(OnLobbyChatMsg);
+        
         playerItemCont = GetNode("Panel/VBoxContainer/ScrollContainer/ItemCont");
+        chatEdit = GetNode<TextEdit>("Panel/VBoxContainer/Bottom/VBoxContainer/TextEdit");
+        msgCont = GetNode<Control>("Panel/VBoxContainer/Bottom/VBoxContainer/Panel/Chat/VBoxContainer");
+        chatScrollBar = GetNode<ScrollContainer>("Panel/VBoxContainer/Bottom/VBoxContainer/Panel/Chat").GetVScrollBar();
+        chatScrollBar.FocusMode = FocusModeEnum.Click;
+       
         GetNode<Button>("quit").Pressed += () =>
         {
             SteamMatchmaking.LeaveLobby(lobbyID);
@@ -26,10 +37,38 @@ public partial class LobbyChatRoom : Node
             instance = null;
         };
     }
+    public override void _Ready()
+    {
+        chatEdit.GrabFocus();
+        // change it
+    }
     public override void _ExitTree()
     {
         lobbyDataUpdateCallback.Dispose();
     }
+
+    public override void _Process(double delta)
+    {
+        if (!chatScrollBar.HasFocus()) SetBar();
+    }
+    public override void _Input(InputEvent @event)
+    {
+        if(@event is InputEventKey key)
+        {
+            if (chatEdit.HasFocus() && key.Keycode == Key.Enter && key.Pressed)
+            {
+                AcceptEvent();
+                if(chatEdit.Text != null && chatEdit.Text != "")
+                {
+                    if (chatEdit.Text.Length > 256) return;
+                    byte[] buf = Encoding.UTF8.GetBytes(chatEdit.Text);
+                    SteamMatchmaking.SendLobbyChatMsg(lobbyID, buf, buf.Length + 1);
+                    chatEdit.Text = "";
+                }
+            }
+        }
+    }
+
 
     public CSteamID lobbyID;
     public void Init(CSteamID lobbyID)
@@ -38,7 +77,6 @@ public partial class LobbyChatRoom : Node
         PlayerItem.lobbyID = lobbyID;
         UpdateLobbyInfo();
         UpdatePlayerList();
-
     }
     public void UpdateLobbyInfo()
     {
@@ -103,6 +141,26 @@ public partial class LobbyChatRoom : Node
         if(update_T.m_ulSteamIDLobby != update_T.m_ulSteamIDMember)
         {
             UpdatePlayerList();
+        }
+    }
+    public void SetBar()
+    {
+        chatScrollBar.Value = chatScrollBar.MaxValue;
+    }
+    void OnLobbyChatMsg(LobbyChatMsg_t msg_T)
+    {
+        byte[] buf = new byte[1024];
+        CSteamID userID = new CSteamID();
+        EChatEntryType eChatEntryType = new EChatEntryType();
+        SteamMatchmaking.GetLobbyChatEntry(lobbyID, (int)msg_T.m_iChatID, out userID, buf, 1024, out eChatEntryType);
+
+        Label label = new Label();
+        label.Text = SteamFriends.GetFriendPersonaName(userID) +": "+ Encoding.UTF8.GetString(buf);
+        msgCont.AddChild(label);
+
+        if(msgCont.GetChildCount() > 20)
+        {
+            msgCont.GetChild(0).QueueFree();
         }
     }
 }
