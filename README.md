@@ -1,7 +1,7 @@
-Godot 4.4 Steam Lobby Matchmaking Demo
-This project is a Steam lobby matchmaking demo built with Godot 4.4, using C# and the Steamworks.NET integration.
+#Godot 4.4 Steam Lobby Matchmaking Demo
+#This project is a Steam lobby matchmaking demo built with Godot 4.4, using C# and the Steamworks.NET integration.
 
-✨ Features
+##✨ Features
 Refresh lobby list
 
 Create lobby
@@ -16,14 +16,14 @@ Displaying player avatars
 
 Kicking members from the lobby
 
-🧩 Requirements
+##🧩 Requirements
 Godot 4.4 or later
 
 Visual Studio (for C# development)
 
 Steam client running in the background
 
-🛠️ How to Use
+##🛠️ How to Use
 Download or clone the project.
 
 Open the project in Godot 4.4 or newer.
