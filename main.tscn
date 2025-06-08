@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp8urteo6myrc"]
+
+[ext_resource type="Script" uid="uid://dmyipi4xpp7l5" path="res://SteamManager.cs" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bf24lcxv0uhtu" path="res://lobbyList/lobbyList.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="LobbyList" parent="." instance=ExtResource("2_0xm2m")]

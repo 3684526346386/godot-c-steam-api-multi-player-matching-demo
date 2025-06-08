@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bov74kk6njcf0"]
+
+[ext_resource type="Script" uid="uid://dk6dwkn87q5yb" path="res://lobbyList/LobbyChatRoom/PlayerItem/PlayerItem.cs" id="1_vydgo"]
+
+[node name="Playeritem" type="HBoxContainer"]
+size_flags_horizontal = 6
+script = ExtResource("1_vydgo")
+
+[node name="name" type="Label" parent="."]
+layout_mode = 2
+text = "name"
